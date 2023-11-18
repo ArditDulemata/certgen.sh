@@ -67,3 +67,13 @@ gen_ca_test_cases "Test case XXX: This is the name of the test case" \
     "path_to_the_leaf_cert_configuration_file.cnf" \
     "Choose the bundle that you want - see features section" 2>&1 | tee -a "$LOG_FILE"
 ```
+## Warning
+- 17-binary-shellcode-LEAF.cnf contains x86_64 shellcode (weirdly enough OpenSSL still mangaes to generate the certificate with it) but be mindful where you import it, the same goes for the 18-command-injection-LEAF.cnf 
+- The script is not entirely refined, I was sloppy with the function that generates the mismatching certs, feel free to contribute.
+## DISCLAIMER
+- The certgen.sh script is provided for educational and testing purposes only. It is primarily designed for generating various types of Certificate Authorities (CAs), Intermediate CAs, and leaf certificates to assess backend systems and cryptographic handling.
+- The script should be used in a controlled and secure environment. It is not intended for production use in live or critical systems.
+- Users of certgen.sh must understand the implications of generating and handling cryptographic certificates and should have a basic understanding of security practices.
+- The user assumes all responsibility for the use of this script. Any misuse of the script or generated certificates can lead to security vulnerabilities in the systems being tested.
+- Ensure compliance with local and international laws and regulations regarding cryptographic materials and their use.
+- This script should not be used for illegal or unethical purposes. The creators of certgen.sh will not be responsible for any misuse or damage caused by the script.
