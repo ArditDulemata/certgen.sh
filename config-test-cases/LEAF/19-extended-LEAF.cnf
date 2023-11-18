@@ -1,0 +1,64 @@
+# https://www.openssl.org/docs/man3.0/man5/x509v3_config.html
+[ req ]
+prompt = no
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+default_bits = 2048
+
+[ req_distinguished_name ]
+countryName                = IT
+stateOrProvinceName        = Lombardy
+localityName               = Milan
+0.organizationName         = QA Cert-Gen Project
+commonName                 = QA Leaf cert test with extended fields
+organizationalUnitName     = QA Department
+emailAddress               = qa@qa-tests.com
+givenName                  = "The givenName"
+surname                    = "The surname"
+title                      = "the Title"
+initials                   = "the initials"
+pseudonym                  = "the pseudonym"
+generationQualifier        = "the generationQualifier"
+businessCategory           = "the businessCategory"
+postalCode                 = "the postalCode"
+streetAddress              = "the streetAddress"
+telephoneNumber            = "the telephoneNumber"
+dnQualifier                = "4e5b5dd4-8b8b-4be8-ace7-aae2f0ec9e12"
+
+[ v3_req ]
+basicConstraints           = critical, CA:FALSE
+keyUsage                   = digitalSignature, keyEncipherment, nonRepudiation, keyAgreement, keyCertSign
+extendedKeyUsage           = serverAuth, clientAuth, codeSigning, emailProtection, timeStamping, OCSPSigning, ipsecIKE, msCodeInd, msCodeCom, msCTLSign, msEFS
+subjectAltName             = @alt_names
+subjectKeyIdentifier       = hash
+crlDistributionPoints      = URI:http://crl.qa-tests.com/crl.pem
+authorityKeyIdentifier     = keyid,issuer
+certificatePolicies        = @cert_policies
+authorityInfoAccess        = @authority_info_access
+policyConstraints          = requireExplicitPolicy:0
+nameConstraints            = @name_constraints
+1.2.3.4.5.6.7.8            = ASN1:UTF8String:Custom Value
+issuerAltName              = @issuer_alt_names
+
+[ alt_names ]
+DNS.1                      = tests.com
+DNS.2                      = qa-tests.com
+DNS.3                      = *.qa-tests.com
+
+[ cert_policies ]
+policyIdentifier           = 1.3.6.1.4.1.99999.1.1
+CPS.1                      = "http://www.qa-tests.com/cps"
+
+[ authority_info_access ]
+OCSP;URI                   = http://ocsp.qa-tests.com
+caIssuers;URI              = http://www.qa-tests.com/ca.cert
+
+[ name_constraints ]
+permitted;DNS.0            = .qa-tests.com
+permitted;IP.0             = 192.168.0.0/255.255.0.0
+excluded;DNS.1             = .example.com
+excluded;IP.1              = 203.0.113.0/255.255.255.0
+
+[ issuer_alt_names ]
+DNS.1 = interm.qa-tests.com
+DNS.2 = another-domain.com

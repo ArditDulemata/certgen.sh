@@ -1,0 +1,17 @@
+[ req ]
+default_bits        = 1024
+distinguished_name  = req_distinguished_name
+x509_extensions     = v3_ca
+prompt              = no
+
+[ req_distinguished_name ]
+countryName             = IT
+stateOrProvinceName     = Lombardy
+localityName            = Milan
+0.organizationName      = QA Cert-Gen Project
+commonName              = QA Testing Default Root CA
+
+[ v3_ca ]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer:always
+basicConstraints       = critical,CA:true

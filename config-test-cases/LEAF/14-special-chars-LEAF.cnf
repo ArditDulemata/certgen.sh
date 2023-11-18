@@ -1,0 +1,18 @@
+[ req ]
+prompt = no
+distinguished_name      = req_distinguished_name
+x509_extensions         = v3_req
+default_md              = sha256
+
+[ req_distinguished_name ]
+countryName             = IT
+stateOrProvinceName     = "+>_']:\.\&(`*'.>}~}{*>`%"
+localityName            = "_*:/[[?(.=)`@]{+;;{\/$\["
+0.organizationName      = "^$^^=)(.'*}>\`,=}%]:-(#/"
+commonName              = QA Special Chars LEAF cert
+organizationalUnitName  = "`~?/!)}^`:[[/)]$@%(|\{?@"
+emailAddress = "{$/}\!)[*;#@+:)|\=+=^(#@"
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment

@@ -1,0 +1,18 @@
+[ req ]
+prompt = no
+distinguished_name      = req_distinguished_name
+x509_extensions         = v3_req
+default_md              = sha256
+
+[ req_distinguished_name ]
+countryName             = IT
+stateOrProvinceName     = "\x01\x02\x03\x04\x05\x06\x07\x08\x0E\x0F\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19"
+localityName            = "\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54"
+0.organizationName      = "\x31\xc0\x31\xdb\x31\xc9\x31\xd2\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89"
+organizationalUnitName  = "\x6a\x42\x58\xfe\xc4\x48\x99\x52\x48\xbf\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x57\x54"
+commonName              = "Testing LEAF cert with Binary data"
+emailAddress            = "test@example.org"
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment

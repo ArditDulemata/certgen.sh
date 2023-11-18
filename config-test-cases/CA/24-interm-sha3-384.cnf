@@ -1,0 +1,49 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = ./CA/intermediate 
+certs             = $dir/certs        
+crl_dir           = $dir/crl          
+new_certs_dir     = $dir/newcerts     
+database          = $dir/index.txt    
+serial            = $dir/serial       
+RANDFILE          = $dir/private/.rand 
+crlnumber         = $dir/crlnumber   
+crl               = $dir/crl/interm.crl.pem 
+crl_extensions    = crl_ext
+name_opt          = ca_default
+cert_opt          = ca_default
+default_crl_days  = 30
+preserve          = no
+policy            = policy_strict
+default_md        = sha3-384
+
+[ req ]
+distinguished_name = req_distinguished_name
+x509_extensions    = v3_intermediate_ca
+prompt             = no
+default_md         = sha3-384
+default_bits       = 2048
+
+[ req_distinguished_name ]
+countryName             = IT
+stateOrProvinceName     = Lombardy
+localityName            = Milan
+organizationName        = QA Cert-Gen Project
+commonName              = QA Testing Intermediate CA
+
+[ v3_intermediate_ca ]
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+basicConstraints        = critical,CA:true,pathlen:0
+keyUsage                = critical, digitalSignature, cRLSign, keyCertSign
+
+[ policy_strict ]
+countryName             = match
+stateOrProvinceName     = match
+localityName            = match
+organizationName        = match
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
