@@ -5,7 +5,7 @@
 #### certgen.sh is a tester's OpenSSL wrapper designed for generating and testing a wide range of certificates using a template based system and a comprehensive combinations of algorithms and ciphers (test cases, including few security ones).
 
 ## Demo
-[View the Asciinema Demo](./certgen.cast)
+[![asciicast](https://asciinema.org/a/621735.svg)](https://asciinema.org/a/621735)
 **Tested with :**
 ```
 OpenSSL 3.1.4 24 Oct 2023 (Library: OpenSSL 3.1.4 24 Oct 2023)
